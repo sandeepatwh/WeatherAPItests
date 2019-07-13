@@ -1,0 +1,29 @@
+{
+  "name": "weathertestapi",
+  "version": "1.0.0",
+  "description": "API automation exercise for wooliesX",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mochawesome": "^4.0.1",
+    "mochawesome-report-generator": "^4.0.1",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha 'test/*.js' --timeout 5000 --reporter mochawesome",
+    "report": "marge --inline=true mochawesome-report/mochawesome.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeepatwh/WeatherAPItests.git"
+  },
+  "author": "Sandeep Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandeepatwh/WeatherAPItests/issues"
+  },
+  "homepage": "https://github.com/sandeepatwh/WeatherAPItests#readme"
+}

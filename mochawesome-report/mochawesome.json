@@ -1,0 +1,193 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-07-13T03:52:15.124Z",
+    "end": "2019-07-13T03:52:15.941Z",
+    "duration": 817,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6c51d7c3-862f-40af-86d0-7ae4909ef184",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1fd8484-87fb-471b-8695-8eab4a35ade5",
+          "title": "WooliesX API Test ... ",
+          "fullFile": "C:\\temp\\ApiTests\\WeatherAPItests\\test\\WeatherApiTests.js",
+          "file": "\\test\\WeatherApiTests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+              "title": "Holiday in Sydney ..",
+              "fullFile": "C:\\temp\\ApiTests\\WeatherAPItests\\test\\WeatherApiTests.js",
+              "file": "\\test\\WeatherApiTests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "I like to have holiday in Sydney",
+                  "fullTitle": "WooliesX API Test ...  Holiday in Sydney .. I like to have holiday in Sydney",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "city= testData.city;",
+                  "err": {},
+                  "uuid": "1e403341-8e1a-4999-9d10-9e5dad526da6",
+                  "parentUUID": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "I only like to holiday on thursday",
+                  "fullTitle": "WooliesX API Test ...  Holiday in Sydney .. I only like to holiday on thursday",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "if(new Date().getDay() == testData.dayOfTheWeek){\n    console.log('Today is thursday, so enjoy your holiday');\n    IsItcorrectDayOfTheWeekForHoliday=true;\n    done();\n}\nelse{\n    done(new Error(\"Today is not thursday, no holiday can be taken..\"));\n}",
+                  "err": {},
+                  "uuid": "d674d632-cac5-44fb-bd85-e9a69471611d",
+                  "parentUUID": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "I look up the weather forecast",
+                  "fullTitle": "WooliesX API Test ...  Holiday in Sydney .. I look up the weather forecast",
+                  "timedOut": false,
+                  "duration": 796,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "if(IsItcorrectDayOfTheWeekForHoliday){\n            let endpoint = '/data/2.5/weather?q='+city+ '&APPID='+testData.apiKey2+'&units=metric';\n            responseData=  await apiHelper.sendGETRequest(apiEndPointHelper.baseUrl,endpoint);\n            \n            console.log('Response code for the API request is : ' + responseData.status );\n        \n            expect(responseData.status).to.equal(200);\n            }\n            else{\n               throw console.error('No Weather forcast has been checked');\n               ;\n              //  done(new Error(\"No weather forcast has been checked.... \"));\n            }",
+                  "err": {},
+                  "uuid": "b325ded7-40d6-4819-b91a-e6a96a032c15",
+                  "parentUUID": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "I receive the weather forecast",
+                  "fullTitle": "WooliesX API Test ...  Holiday in Sydney .. I receive the weather forecast",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "if(IsItcorrectDayOfTheWeekForHoliday){\n    expect(responseData.type).to.equal('application/json'); //Assert\n    done();\n}\nelse{\n    done(new Error(\"No weather forcast information is received... \"));\n}",
+                  "err": {},
+                  "uuid": "e8cda62b-5c30-4ff6-bd64-fb6901bbb1cc",
+                  "parentUUID": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "the maximum temperature is warmer than specfic degrees",
+                  "fullTitle": "WooliesX API Test ...  Holiday in Sydney .. the maximum temperature is warmer than specfic degrees",
+                  "timedOut": false,
+                  "duration": 2,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let json = JSON.parse(responseData.text);\n            console.log(json.name + ' : Maximum Temperature => ' + json.main.temp_max);\n            if(IsItcorrectDayOfTheWeekForHoliday)\n             {              \n                //Assert\n                if(json.main.temp_max >= testData.MaxTemp){ \n                    expect(json.main.temp_max).is.greaterThan(testData.MaxTemp);\n                     console.log(json.name + ' : Maximum Temperature => ' + json.main.temp_max);\n                     console.log('Holiday begins ....');\n                     done();\n                    }\n                    else{\n                        done(new Error(\"Maximum temperature is below 10 degree, no holiday to be taken, even though its thursday... \"));\n                    }\n                }\n            else{\n                done(new Error(\"No maximum temperature has been checked... \"));\n            }",
+                  "err": {},
+                  "uuid": "15596e14-a007-474a-b7c4-a8b84634300e",
+                  "parentUUID": "fb16a173-ffe7-44b4-b683-f692752e7e5c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1e403341-8e1a-4999-9d10-9e5dad526da6",
+                "d674d632-cac5-44fb-bd85-e9a69471611d",
+                "b325ded7-40d6-4819-b91a-e6a96a032c15",
+                "e8cda62b-5c30-4ff6-bd64-fb6901bbb1cc",
+                "15596e14-a007-474a-b7c4-a8b84634300e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 800,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 5000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.1.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "useInlineDiffs": false
+      },
+      "version": "4.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "4.0.1"
+    }
+  }
+}

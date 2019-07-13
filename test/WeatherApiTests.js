@@ -59,9 +59,7 @@ describe('WooliesX API Test ... ', () => {
         it('the maximum temperature is warmer than specfic degrees', function(done) {
 
             let json = JSON.parse(responseData.text);
-            console.log(json.name + ' : Maximum Temperature => ' + json.main.temp_max);
-
-
+          
             if(IsItcorrectDayOfTheWeekForHoliday)
              {              
                 //Assert

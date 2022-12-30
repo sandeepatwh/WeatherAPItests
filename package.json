@@ -10,7 +10,7 @@
     "supertest": "^4.0.2"
   },
   "devDependencies": {
-    "mocha": "^6.1.4"
+    "mocha": "^10.2.0"
   },
   "scripts": {
     "test": "mocha 'test/*.js' --timeout 5000 --reporter mochawesome",
